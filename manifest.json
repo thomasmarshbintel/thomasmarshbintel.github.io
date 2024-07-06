@@ -1,0 +1,15 @@
+{
+    "name": "Menstrual",
+    "short_name": "Menstrual",
+    "description": "Menstrual",
+    "start_url": "/",
+    "theme_color": "#eeffee",
+    "background_color": "#eeffee",
+    "display": "standalone",
+    "icons": [
+          {
+        "src": "arvada logo.jpg",
+        "sizes": "any"
+      }
+    ]
+}
