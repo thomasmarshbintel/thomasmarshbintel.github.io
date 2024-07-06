@@ -1,6 +1,6 @@
 const newPeriodFormEl = document.getElementsByTagName("form")[0];
 const startDateInputEl = document.getElementById("start-date");
-const endDateInputEl = document.getElementById("end-date");
+const bootieTextInputEl = document.getElementById("bootie-message");
 const pastPeriodContainer = document.getElementById("past-periods");
 
 // Add the storage key as an app-wide constant
@@ -10,26 +10,16 @@ const STORAGE_KEY = "period-tracker";
 newPeriodFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const startDate = startDateInputEl.value;
-  const endDate = endDateInputEl.value;
-  if (checkDatesInvalid(startDate, endDate)) {
-    return;
-  }
-  storeNewPeriod(startDate, endDate);
+  const bootieText = bootieTextInputEl.value;
+
+  storeNewPeriod(startDate, bootieText);
   renderPastPeriods();
   newPeriodFormEl.reset();
 });
 
-function checkDatesInvalid(startDate, endDate) {
-  if (!startDate || !endDate || startDate > endDate) {
-    newPeriodFormEl.reset();
-    return true;
-  }
-  return false;
-}
-
-function storeNewPeriod(startDate, endDate) {
+function storeNewPeriod(startDate, bootieText) {
   const periods = getAllStoredPeriods();
-  periods.push({ startDate, endDate });
+  periods.push({ startDate, bootieText });
   periods.sort((a, b) => {
     return new Date(b.startDate) - new Date(a.startDate);
   });
@@ -57,7 +47,7 @@ function renderPastPeriods() {
     const periodEl = document.createElement("li");
     periodEl.textContent = `From ${formatDate(
       period.startDate,
-    )} to ${formatDate(period.endDate)}`;
+    )} to ${period.bootieText}`;
     pastPeriodList.appendChild(periodEl);
   });
 
