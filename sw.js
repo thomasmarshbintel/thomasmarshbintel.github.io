@@ -10,9 +10,7 @@ const APP_STATIC_RESOURCES = [
   "/index.html",
   "/app.js",
   "/style.css",
-  "/arvada logo.jpg",
-  "https://unpkg.com/maplibre-gl/dist/maplibre-gl.css",
-  "https://unpkg.com/maplibre-gl/dist/maplibre-gl.js",
+  "/arvada logo.jpg"
 ];
 
 // On install, cache the static resources
