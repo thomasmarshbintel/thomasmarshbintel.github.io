@@ -10,7 +10,8 @@ const APP_STATIC_RESOURCES = [
   "/index.html",
   "/app.js",
   "/style.css",
-  "/arvada logo.jpg"
+  "/arvada logo.jpg",
+  "/countries.geo.json"
 ];
 
 // On install, cache the static resources
